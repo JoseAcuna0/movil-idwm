@@ -1,0 +1,8 @@
+{
+  "name": "Movil_IDWM",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "1a0c0f54"
+}
