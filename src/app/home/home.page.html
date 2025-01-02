@@ -1,52 +1,42 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">
-      <ion-img src="assets/Escudo-UCN-Logos.png" style="max-width: 80px; height: auto; margin-right: 10px;"></ion-img>
+    <ion-title>
+      <img src="assets/Escudo-UCN-Logos.png" alt="Logo UCN" style="height: 40px; vertical-align: middle; margin-right: 10px;">
       Tienda UCN
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h2 class="center-title">Iniciar sesión</h2>
+<ion-content class="ion-padding custom-background">
+  <div class="form-container">
+    <h1 class="form-title">Iniciar sesión</h1>
+    
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input placeholder="Escribe tu nombre"></ion-input>
+    </ion-item>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12">
-        <ion-item>
-          <ion-label position="floating">Nombre</ion-label>
-          <ion-input type="text" placeholder="Escribe tu nombre"></ion-input>
-        </ion-item>
-      </ion-col>
+    <ion-item>
+      <ion-label position="floating">Correo electrónico</ion-label>
+      <ion-input type="email" placeholder="nombre@gmail.com"></ion-input>
+    </ion-item>
 
-      <ion-col size="12">
-        <ion-item>
-          <ion-label position="floating">Correo electrónico</ion-label>
-          <ion-input type="email" placeholder="nombre@gmail.com"></ion-input>
-        </ion-item>
-      </ion-col>
+    <ion-item>
+      <ion-label position="floating">Fecha de nacimiento</ion-label>
+      <ion-input placeholder="DD-MM-YYYY"></ion-input>
+    </ion-item>
 
-      <ion-col size="12">
-        <ion-item>
-          <ion-label position="floating">Fecha de nacimiento</ion-label>
-          <ion-input type="text" placeholder="DD-MM-YYYY"></ion-input>
-        </ion-item>
-      </ion-col>
+    <ion-item>
+      <ion-label>Género</ion-label>
+      <ion-select placeholder="Selecciona una opción">
+        <ion-select-option>Masculino</ion-select-option>
+        <ion-select-option>Femenino</ion-select-option>
+        <ion-select-option>Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-      <ion-col size="12">
-        <ion-item>
-          <ion-label>Género</ion-label>
-          <ion-select placeholder="Selecciona una opción">
-            <ion-select-option value="masculino">Masculino</ion-select-option>
-            <ion-select-option value="femenino">Femenino</ion-select-option>
-            <ion-select-option value="otro">Otro</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <div class="btn-container">
-    <ion-button expand="block" color="primary">Ingresar</ion-button>
+    <ion-button expand="block" color="primary" class="submit-button">Ingresar</ion-button>
   </div>
 </ion-content>
+
+
