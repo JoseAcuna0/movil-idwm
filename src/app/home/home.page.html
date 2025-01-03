@@ -1,29 +1,34 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>
-      <img src="assets/Escudo-UCN-Logos.png" alt="Logo UCN" style="height: 40px; vertical-align: middle; margin-right: 10px;">
-      Tienda UCN
-    </ion-title>
+  <ion-toolbar class="toolbar-tienda">
+    <div class="titulo-container">
+      <img src="assets/Escudo-UCN-Logos.png" alt="Logo UCN" class="logo-ucn">
+      <ion-title class="titulo-tienda">Tienda UCN</ion-title>
+    </div>
   </ion-toolbar>
+  <div class="apartados-container">
+    <ion-button class="apartado" fill="clear">Productos</ion-button>
+    <ion-button class="apartado" fill="clear">Compras</ion-button>
+    <ion-button class="apartado" fill="clear">Cuenta</ion-button>
+  </div>
 </ion-header>
 
 <ion-content class="ion-padding custom-background">
   <div class="form-container">
     <h1 class="form-title">Iniciar sesión</h1>
     
-    <ion-item>
+    <ion-item class="input-item">
       <ion-label position="floating">Nombre</ion-label>
-      <ion-input placeholder="Escribe tu nombre"></ion-input>
+      <ion-input placeholder=""></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="input-item">
       <ion-label position="floating">Correo electrónico</ion-label>
-      <ion-input type="email" placeholder="nombre@gmail.com"></ion-input>
+      <ion-input type="" placeholder=""></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="input-item">
       <ion-label position="floating">Fecha de nacimiento</ion-label>
-      <ion-input placeholder="DD-MM-YYYY"></ion-input>
+      <ion-input type=""></ion-input>
     </ion-item>
 
     <ion-item>
@@ -35,7 +40,9 @@
       </ion-select>
     </ion-item>
 
-    <ion-button expand="block" color="primary" class="submit-button">Ingresar</ion-button>
+    <div class="button-container">
+      <ion-button class="submit-button">Ingresar</ion-button>
+    </div>
   </div>
 </ion-content>
 
