@@ -6,6 +6,12 @@ const routes: Routes = [
     path: '',
     loadComponent: () => import('./home/home.page').then(m => m.HomePage),
   },
+  {
+    path: 'principal-page',
+    loadComponent: () => import('./principal-page/principal-page.page').then( m => m.PrincipalPagePage)
+  },
+
+
 ];
 @NgModule({
   imports: [

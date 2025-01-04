@@ -11,18 +11,17 @@
 }
 
 .titulo-tienda {
-  font-size: 24px; /* Ajusta el tamaño según sea necesario */
-  color: #ffffff; /* Asegúrate de que el texto sea visible */
-  margin-left: -90px; /* Ajusta el margen según sea necesario */
+  font-size: 24px;
+  color: #ffffff;
+  margin-left: -90px;
 }
 
 .titulo-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Alinea los elementos a la izquierda */
-  width: 100%; 
+  justify-content: flex-start;
+  width: 100%;
 }
-
 
 .form-title {
   font-size: 1.5rem;
@@ -30,54 +29,66 @@
   margin-bottom: 20px;
 }
 
-/* Estilo para los campos de entrada */
+/* Contenedor para inputs con etiquetas fijas */
+.input-container {
+  margin-bottom: 20px; /* Espaciado entre cada input */
+  position: relative;
+}
+
+/* Texto fijo encima del input */
+.input-label {
+  font-size: 14px;
+  color: #003058;
+  margin-bottom: 5px; /* Espacio entre el texto y el input */
+  display: block;
+}
+
+/* Estilo de ion-item */
 ion-item {
   --highlight-color-focused: #003058;
   --background: #ffffff;
   --color: #000;
+  --inner-box-shadow: none; /* Elimina la línea debajo del input */
+  --box-shadow: none; /* Asegura que no haya sombras */
   border: 1px solid #000;
-  border-radius: 15px; /* Mantén el borde redondeado */
+  border-radius: 15px;
   margin-bottom: 15px;
-  height: 50px; /* Altura de los inputs */
-  padding: 0 10px; /* Espaciado interno horizontal */
+  height: 50px;
+  padding: 0 10px;
   display: flex;
-  align-items: center; /* Centra los elementos verticalmente */
-  position: relative; /* Asegura que el label flotante funcione bien */
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-
-
-/* Ajusta los bordes en el foco */
-ion-item:focus-within {
-  border: 1px solid #003f82;
-}
-
-ion-label {
-  color: #003058;
-  font-size: 14px; /* Tamaño más consistente */
-  position: absolute;
-  top: 12px; /* Centrado vertical inicial */
-  left: 15px; /* Espaciado desde el borde izquierdo */
-  transition: 0.3s ease-in-out; /* Suaviza la animación */
+/* Ajusta los inputs */
+ion-input {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  font-size: 16px;
+  color: #000;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 /* Botón de envío */
 .submit-button {
   margin-top: 20px;
-  width: 120px; /* Ajusta el tamaño según sea necesario */
-  height: 50px; /* Ajusta el tamaño según sea necesario */
-  border-radius: 50%; /* Hace que el botón sea circular */
+  width: 120px;
+  height: 50px;
+  border-radius: 50%;
   --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  --background: #003058; /* Corregido */
-  color: #ffffff; /* Asegúrate de que el texto sea visible */
+  --background: #003058;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.toolbar-tienda{
+.toolbar-tienda {
   --background: #003058;
-  min-height: 100px; /* Ajusta el tamaño del fondo según sea necesario */
+  min-height: 100px;
   display: flex;
   align-items: center;
 }
@@ -86,70 +97,31 @@ ion-label {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px; /* Ajusta el margen según sea necesario */
+  margin-top: 20px;
 }
 
 .apartados-container {
   display: flex;
   justify-content: space-around;
-  padding: 5px 0; /* Ajusta el padding según sea necesario */
-  background-color: #001e36; /* Color de fondo para los apartados */
-  height: 30px; /* Ajusta la altura del contenedor */
-  margin: 0 auto; /* Centra el contenedor horizontalmente */
-  align-items: center; /* Alinea los elementos verticalmente */
+  padding: 5px 0;
+  background-color: #001e36;
+  height: 30px;
+  margin: 0 auto;
+  align-items: center;
 }
 
-
 .apartado {
-  color: #ffffff; /* Color del texto */
-  --background: transparent; /* Elimina el fondo azul predeterminado */
-  --ripple-color: transparent; /* Elimina el efecto ripple */
-  font-size: 14px; /* Ajusta el tamaño del texto según sea necesario */
-  padding: 0 10px; /* Ajusta el padding según sea necesario */
-  height: 30px; /* Asegura que los botones tengan la misma altura que el contenedor */
-  line-height: 30px; /* Alinea el texto verticalmente */
+  color: #ffffff;
+  --background: transparent;
+  --ripple-color: transparent;
+  font-size: 14px;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
 }
 
 .logo-ucn {
   height: 40px;
   vertical-align: middle;
   margin-right: 10px;
-}
-
-.input-item {
-  --highlight-color-focused: #003058;
-  --background: transparent;
-  --color: #000;
-  border: 1px solid #000; /* Borde negro */
-  border-radius: 25px;
-  margin-bottom: 15px;
-  position: relative; /* Para controlar el posicionamiento relativo de los elementos */
-}
-
-
-ion-item:focus-within ion-label,
-ion-item ion-input:not(:placeholder-shown) + ion-label {
-  top: -10px; /* Mueve el label hacia arriba */
-  font-size: 12px; /* Reduce ligeramente el tamaño del label flotante */
-  color: #003058;
-}
-
-ion-input {
-  --padding-start: 10px; /* Espaciado interno horizontal */
-  --padding-end: 10px;
-  --padding-top: 0px;
-  --padding-bottom: 0px;
-  font-size: 16px; /* Ajusta el tamaño del texto */
-  color: #000;
-}
-
-/* Ajusta el estilo del ion-select */
-ion-select {
-  --padding-start: 10px;
-  --padding-end: 10px;
-  font-size: 16px;
-  color: #000;
-  height: 50px; /* Asegura la misma altura que los inputs */
-  display: flex;
-  align-items: center; /* Centra el texto del select verticalmente */
 }
