@@ -8,12 +8,15 @@
   <div class="apartados-container">
     <ion-button class="apartado" fill="clear">Productos</ion-button>
     <ion-button class="apartado" fill="clear"(click)="navigateToShoppingPage()">Compras</ion-button>
-    <ion-button class="apartado" fill="clear" id="accountButton" (click)="navigateToAccountPage()">Cuenta</ion-button>
+    <ion-button class="apartado" fill="clear" id="accountButton">Cuenta</ion-button>
   </div>
 </ion-header>
 
 <ion-content class="ion-padding custom-background">
   <div class="content-container">
-    <img src="assets/giphy_s.jpg" alt="Imagen de bienvenida" class="welcome-image">
-    <h1 class="welcome-text">¡Bienvenido "Nombre" a la Página Principal!</h1>
+    <div class="button-group">
+      <ion-button expand="block" class="action-button delete-button" (click)="confirmDelete()">Eliminar cuenta</ion-button>
+      <ion-button expand="block" class="action-button logout-button" (click)="logout()">Cerrar sesión</ion-button>
+    </div>
   </div>
+</ion-content>

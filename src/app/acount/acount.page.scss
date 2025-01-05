@@ -1,0 +1,101 @@
+/* Fondo blanco para todo el contenido */
+.custom-background {
+    --background: #ffffff;
+    --color: #000000;
+  }
+  
+  /* Contenedor principal del contenido */
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar elementos horizontalmente */
+    justify-content: center; /* Centrar elementos verticalmente */
+    height: calc(100% - 150px); /* Subir contenido reduciendo altura */
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Grupo de botones */
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Más separación entre los botones */
+    width: 100%;
+    max-width: 400px; /* Botones más grandes horizontalmente */
+  }
+  
+  /* Estilo de botones */
+  .action-button {
+    --background: #003058; /* Color azul oscuro */
+    --color: #ffffff; /* Texto blanco */
+    --border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Botón de eliminar cuenta */
+  .delete-button {
+    --background: #e63946; /* Rojo para el botón de eliminar */
+  }
+  
+  /* Hover para botones */
+  .action-button:hover {
+    filter: brightness(0.9);
+  }
+  
+  /* Encabezado de la página */
+  .toolbar-tienda {
+    --background: #003058;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .titulo-tienda {
+    font-size: 24px;
+    color: #ffffff;
+    margin-left: -90px;
+  }
+  
+  .titulo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  /* Contenedor de botones de navegación */
+  .apartados-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    background-color: #001e36; /* Mantiene el color de los botones principales */
+    height: 30px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  
+  .apartado {
+    color: #ffffff;
+    --background: transparent;
+    --ripple-color: transparent;
+    font-size: 14px;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+  }
+  
+  /* Logo de la UCN */
+  .logo-ucn {
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  

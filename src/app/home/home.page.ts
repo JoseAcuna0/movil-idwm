@@ -25,8 +25,7 @@ export class HomePage {
 
     await alert.present();
   }
-
-
+  
   navigateToPrincipalPage() {
     this.router.navigate(['/principal-page']);
   }

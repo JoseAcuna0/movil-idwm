@@ -1,0 +1,55 @@
+/* Fondo blanco para todo el contenido */
+.custom-background {
+    --background: #ffffff;
+    --color: #000000;
+  }  
+  /* Encabezado de la página */
+  .toolbar-tienda {
+    --background: #003058;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .titulo-tienda {
+    font-size: 24px;
+    color: #ffffff;
+    margin-left: -90px;
+  }
+  
+  .titulo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  /* Contenedor de botones de navegación */
+  .apartados-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    background-color: #001e36; /* Mantiene el color de los botones principales */
+    height: 30px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  
+  .apartado {
+    color: #ffffff;
+    --background: transparent;
+    --ripple-color: transparent;
+    font-size: 14px;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+  }
+  
+  /* Logo de la UCN */
+  .logo-ucn {
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
