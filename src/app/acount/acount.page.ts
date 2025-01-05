@@ -15,7 +15,7 @@ export class AcountPage implements OnInit {
   showAlert: boolean = false;
 
   constructor(private alertController: AlertController, private router: Router) {}
-  
+
   navigateToShoppingPage() {
     this.router.navigate(['/shoppin']);
   }
@@ -52,6 +52,10 @@ export class AcountPage implements OnInit {
   logout() {
     console.log('Sesión cerrada');
     this.router.navigate(['/']); // Redirige al inicio
+  }
+
+  navigateToProductPage() {
+    this.router.navigate(['/products']);
   }
 
 

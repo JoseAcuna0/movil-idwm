@@ -35,4 +35,8 @@ export class PrincipalPagePage implements OnInit {
   ngOnInit() {
   }
 
+  navigateToProductPage() {
+    this.router.navigate(['/products']);
+  }
+
 }

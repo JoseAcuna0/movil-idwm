@@ -18,6 +18,11 @@ const routes: Routes = [
     path: 'acount',
     loadComponent: () => import('./acount/acount.page').then( m => m.AcountPage)
   },
+  {
+    path: 'products',
+    loadComponent: () => import('./products/products.page').then( m => m.ProductsPage)
+  },
+
 
 
 

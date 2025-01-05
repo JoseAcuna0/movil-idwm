@@ -4,13 +4,13 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-shoppin',
-  templateUrl: './shoppin.page.html',
-  styleUrls: ['./shoppin.page.scss'],
+  selector: 'app-products',
+  templateUrl: './products.page.html',
+  styleUrls: ['./products.page.scss'],
   standalone: true, // Indica que este es un componente standalone
   imports: [IonicModule, CommonModule], // Importa dependencias necesaria
 })
-export class ShoppinPage implements OnInit {
+export class ProductsPage implements OnInit {
 
   constructor(private router: Router) { }
 
@@ -28,5 +28,4 @@ export class ShoppinPage implements OnInit {
   navigateToProductPage() {
     this.router.navigate(['/products']);
   }
-
 }
