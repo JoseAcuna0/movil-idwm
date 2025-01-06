@@ -5,6 +5,8 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule, // Módulo básico para el navegador
     IonicModule.forRoot(), // Configuración de Ionic
+    HttpClientModule,
+    FormsModule,
     AppRoutingModule, // Configuración de las rutas
   ],
   providers: [

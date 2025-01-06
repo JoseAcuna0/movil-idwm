@@ -1,75 +1,151 @@
 /* Fondo blanco para todo el contenido */
 .custom-background {
-    --background: #ffffff;
-    --color: #000000;
-    height: 100%; /* Asegurar que ocupe toda la altura */
-  }
-  
-  /* Contenedor principal del contenido */
-  .content-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrar contenido horizontalmente */
-    justify-content: center; /* Centrar contenido verticalmente */
-    height: calc(100vh - 130px); /* Resta el espacio ocupado por el header */
-    text-align: center;
-    padding: 20px;
-  }
-  
-  /* Mensaje de lista vacía */
-  .empty-message {
-    font-size: 18px;
-    color: #003058;
-    margin-top: 20px;
-  }
-  
-  /* Encabezado de la página */
-  .toolbar-tienda {
-    --background: #003058;
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .titulo-tienda {
-    font-size: 24px;
-    color: #ffffff;
-    margin-left: -90px;
-  }
-  
-  .titulo-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-  }
-  
-  /* Contenedor de botones de navegación */
-  .apartados-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 5px 0;
-    background-color: #001e36;
-    height: 30px;
-    margin: 0 auto;
-    align-items: center;
-  }
-  
-  .apartado {
-    color: #ffffff;
-    --background: transparent;
-    --ripple-color: transparent;
-    font-size: 14px;
-    padding: 0 10px;
-    height: 30px;
-    line-height: 30px;
-    cursor: pointer;
-  }
-  
-  /* Logo de la UCN */
-  .logo-ucn {
-    height: 40px;
-    vertical-align: middle;
-    margin-right: 10px;
-  }
-  
+  --background: #ffffff;
+  --color: #000000;
+  height: 100%;
+}
+
+/* Contenedor de filtros */
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #d3d3d3;
+  gap: 10px;
+}
+
+ion-select {
+  width: 60%;
+  --background: #ffffff;
+  --color: #003058;
+  --placeholder-color: #555555;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+}
+
+ion-button {
+  --background: #003058;
+  --color: #ffffff;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Fondo blanco y separación para cada producto */
+ion-item {
+  --background: #ffffff;
+  border: 1px solid #d3d3d3; /* Borde gris claro */
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  display: flex;
+  align-items: center;
+}
+
+/* Miniaturas */
+ion-thumbnail {
+  --border-radius: 5px; /* Bordes redondeados */
+  overflow: hidden;
+}
+
+/* Títulos y texto */
+ion-label h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #003058; /* Azul oscuro */
+  margin-bottom: 5px;
+}
+
+ion-label p {
+  font-size: 14px;
+  color: #555555; /* Gris oscuro */
+  margin: 2px 0;
+}
+
+/* Botón "Agregar al carrito" */
+ion-button[slot="end"] {
+  --background: #003058; /* Azul del botón */
+  --color: #ffffff; /* Texto blanco */
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  height: 40px;
+  padding: 0 15px;
+}
+
+/* Contenedor de la paginación */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.pagination-container ion-button {
+  --background: #003058;
+  --color: #ffffff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  height: 40px;
+}
+
+.pagination-container ion-label {
+  font-size: 14px;
+  color: #003058; /* Azul oscuro */
+  font-weight: bold;
+}
+
+/* Encabezado de la página */
+.toolbar-tienda {
+  --background: #003058;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.titulo-tienda {
+  font-size: 24px;
+  color: #ffffff;
+  margin-left: -90px;
+}
+
+.titulo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Contenedor de botones de navegación */
+.apartados-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0;
+  background-color: #001e36;
+  height: 30px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.apartado {
+  color: #ffffff;
+  --background: transparent;
+  --ripple-color: transparent;
+  font-size: 14px;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+/* Logo de la UCN */
+.logo-ucn {
+  height: 40px;
+  vertical-align: middle;
+  margin-right: 10px;
+}

@@ -13,7 +13,38 @@
 </ion-header>
 
 <ion-content class="custom-background">
-  <div class="content-container">
+  <!-- Si no hay compras -->
+  <div class="content-container" *ngIf="invoices.length === 0">
     <p class="empty-message">No hay compras realizadas aún.</p>
+  </div>
+
+  <!-- Lista de boletas -->
+  <ion-list *ngIf="invoices.length > 0">
+    <ion-item *ngFor="let invoice of invoices">
+      <ion-label>
+        <h2>Boleta N°{{ invoice.invoiceId }}</h2>
+        <p>Fecha: {{ invoice.purchaseDate }}</p>
+        <p>Total: {{ invoice.total | currency }}</p>
+      </ion-label>
+      <ion-button slot="end" (click)="viewInvoiceDetails(invoice.invoiceId)">Ver detalles</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Detalles de la boleta -->
+  <div *ngIf="selectedInvoice" class="invoice-details">
+    <h3>Detalles de la Boleta N°{{ selectedInvoice.invoiceId }}</h3>
+    <p>Fecha: {{ selectedInvoice.purchaseDate }}</p>
+    <p>Total: {{ selectedInvoice.total | currency }}</p>
+    <ion-list>
+      <ion-item *ngFor="let item of selectedInvoice.items">
+        <ion-label>
+          <h4>{{ item.productName }}</h4>
+          <p>Cantidad: {{ item.quantity }}</p>
+          <p>Precio Unitario: {{ item.unitPrice | currency }}</p>
+          <p>Total: {{ item.totalPrice | currency }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="closeInvoiceDetails()">Cerrar</ion-button>
   </div>
 </ion-content>

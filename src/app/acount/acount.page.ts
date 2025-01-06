@@ -46,18 +46,23 @@ export class AcountPage implements OnInit {
 
   deleteAccount() {
     console.log('Cuenta eliminada');
+    localStorage.clear(); // Borra cualquier dato almacenado
+    sessionStorage.clear(); // Borra datos de sesión
+    localStorage.removeItem('userId'); // Elimina el ID del usuario
     this.router.navigate(['/']); // Redirige al inicio
   }
 
   logout() {
     console.log('Sesión cerrada');
+    localStorage.clear(); // Borra cualquier dato almacenado
+    sessionStorage.clear(); // Borra datos de sesión
+    localStorage.removeItem('userId'); // Elimina el ID del usuario
     this.router.navigate(['/']); // Redirige al inicio
   }
 
   navigateToProductPage() {
     this.router.navigate(['/products']);
   }
-
 
   ngOnInit() {
   }

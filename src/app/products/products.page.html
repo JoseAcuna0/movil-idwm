@@ -13,7 +13,51 @@
 </ion-header>
 
 <ion-content class="custom-background">
-  <div class="content-container">
-    <p class="empty-message">No hay productos disponibles aún.</p>
+  <!-- Filtros y ordenamiento -->
+  <div class="filters-container">
+    <ion-select [(ngModel)]="selectedCategory" (ionChange)="onFilterChange()">
+      <ion-select-option [value]="null">Selecciona una categoría</ion-select-option>
+      <ion-select-option [value]="1">Poleras</ion-select-option>
+      <ion-select-option [value]="2">Gorros</ion-select-option>
+      <ion-select-option [value]="3">Juguetería</ion-select-option>
+      <ion-select-option [value]="4">Alimentación</ion-select-option>
+      <ion-select-option [value]="5">Libros</ion-select-option>
+    </ion-select>
+
+    <ion-button (click)="toggleSortOrder()">
+      Ordenar por precio: {{ sortOrder === 'asc' ? 'Ascendente' : 'Descendente' }}
+    </ion-button>
+  </div>
+
+  <!-- Carga de productos -->
+  <div class="content-container" *ngIf="loading">
+    <ion-spinner></ion-spinner>
+    <p class="empty-message">Cargando productos...</p>
+  </div>
+
+  <div *ngIf="!loading && products.length === 0" class="content-container">
+    <p class="empty-message">No hay productos disponibles para esta búsqueda.</p>
+  </div>
+
+  <ion-list *ngIf="!loading && products.length > 0">
+    <ion-item *ngFor="let product of products">
+      <ion-thumbnail slot="start">
+        <img [src]="product.imageUrl" alt="{{ product.name }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ product.name }}</h2>
+        <p>Categoría: {{ product.category }}</p>
+        <p>Precio: {{ product.price | currency }}</p>
+        <p>Stock: {{ product.stock }}</p>
+      </ion-label>
+      <ion-button slot="end" (click)="addToCart(product)">Agregar al carrito</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Barra de paginación -->
+  <div class="pagination-container">
+    <ion-button [disabled]="pageNumber === 1" (click)="changePage('prev')">Anterior</ion-button>
+    <ion-label>Página {{ pageNumber }}</ion-label>
+    <ion-button [disabled]="!hasMorePages" (click)="changePage('next')">Siguiente</ion-button>
   </div>
 </ion-content>
