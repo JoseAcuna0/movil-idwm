@@ -42,7 +42,7 @@
   <ion-list *ngIf="!loading && products.length > 0">
     <ion-item *ngFor="let product of products">
       <ion-thumbnail slot="start">
-        <img [src]="product.imageUrl" alt="{{ product.name }}">
+        <img [src]="product.imageUrl" alt="{{ product.name }}" />
       </ion-thumbnail>
       <ion-label>
         <h2>{{ product.name }}</h2>
@@ -53,7 +53,7 @@
       <ion-button slot="end" (click)="addToCart(product)">Agregar al carrito</ion-button>
     </ion-item>
   </ion-list>
-
+  
   <!-- Barra de paginación -->
   <div class="pagination-container">
     <ion-button [disabled]="pageNumber === 1" (click)="changePage('prev')">Anterior</ion-button>

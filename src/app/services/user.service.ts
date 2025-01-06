@@ -37,4 +37,9 @@ export class UserService {
       fetchRecursive(1); // Start from the first page
     });
   }
+
+  deleteUser(userId: number): Observable<any> {
+    const url = `${this.apiUrl}/delete/${userId}`;
+    return this.http.delete(url);
+  }
 }

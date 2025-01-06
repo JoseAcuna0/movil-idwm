@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, AlertController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
   standalone: true, // Indica que este es un componente standalone
-  imports: [IonicModule, CommonModule, FormsModule], // Importa dependencias necesaria
+  imports: [IonicModule, CommonModule, FormsModule], // Importa dependencias necesarias
 })
 export class ProductsPage implements OnInit {
   products: any[] = [];
@@ -20,10 +21,26 @@ export class ProductsPage implements OnInit {
   hasMorePages = false;
   selectedCategory: number | null = null; // Valor por defecto para mostrar todos
   sortOrder: string = 'asc'; // 'asc' o 'desc'
+  userId: number | null = null; // ID del usuario
 
-  constructor(private router: Router, private productService: ProductService) {}
+  constructor(
+    private router: Router,
+    private productService: ProductService,
+    private alertController: AlertController,
+    private cartService: CartService
+  ) {}
 
   ngOnInit() {
+    // Obtener el ID del usuario desde localStorage
+    const storedUserId = localStorage.getItem('userId');
+    this.userId = storedUserId ? parseInt(storedUserId, 10) : null;
+
+    if (!this.userId) {
+      console.error('No se encontró el ID del usuario. Redirigiendo al inicio.');
+      this.router.navigate(['/']);
+      return;
+    }
+
     this.resetPagination();
     this.fetchProducts();
   }
@@ -68,8 +85,105 @@ export class ProductsPage implements OnInit {
     this.fetchProducts();
   }
 
-  addToCart(product: any) {
-    console.log(`Producto agregado al carrito: ${product.name}`);
+  async addToCart(product: any) {
+    const alert = await this.alertController.create({
+      header: 'Agregar al carrito',
+      message: `¿Cuántas unidades de "${product.name}" deseas agregar al carrito?`,
+      inputs: [
+        {
+          name: 'quantity',
+          type: 'number',
+          placeholder: 'Cantidad',
+          min: 1,
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Operación cancelada');
+          },
+        },
+        {
+          text: 'Agregar',
+          handler: (data) => {
+            const quantity = parseInt(data.quantity, 10);
+            if (isNaN(quantity) || quantity <= 0) {
+              console.error('Cantidad inválida');
+              return;
+            }
+  
+            if (!this.userId) {
+              console.error('No se encontró el ID del usuario. Redirigiendo al inicio.');
+              this.router.navigate(['/']);
+              return;
+            }
+  
+            const cartId = this.userId; // Usamos el userId como cartId
+  
+            this.cartService.addToCart(cartId, { productId: product.productId, quantity }).subscribe({
+              next: (response) => {
+                console.log('Producto agregado al carrito:', response);
+              },
+              error: (error) => {
+                console.error('Error al agregar al carrito:', error);
+                if (error.status === 404) {
+                  console.error('El endpoint no se encontró. Verifica la URL o el backend.');
+                }
+              },
+            });
+          },
+        },
+      ],
+    });
+  
+    await alert.present();
+  }
+
+  addToCartRequest(productId: number) {
+    if (!this.userId) {
+      console.error('No se encontró el ID del usuario. Redirigiendo al inicio.');
+      this.router.navigate(['/']);
+      return;
+    }
+  
+    const quantity = prompt('¿Cuántas unidades deseas agregar?');
+    if (!quantity || isNaN(+quantity) || +quantity <= 0) {
+      console.error('Cantidad no válida ingresada.');
+      return;
+    }
+  
+    const cartId = this.userId; // Usamos el userId como cartId
+    console.log('Datos antes de enviar al servicio:');
+    console.log('Cart ID:', cartId);
+    console.log('Product ID:', productId);
+    console.log('Quantity:', quantity);
+  
+    this.cartService.addToCart(cartId, { productId, quantity: +quantity }).subscribe({
+      next: async (response) => {
+        console.log('Respuesta del servidor:', response);
+        if (typeof response === 'string') {
+          console.log('Mensaje del servidor:', response);
+        } else {
+          console.log('Producto agregado correctamente:', response);
+        }
+  
+        // Mostrar popup
+        const alert = await this.alertController.create({
+          header: 'Éxito',
+          message: 'Producto agregado correctamente al carrito.',
+          buttons: ['OK'],
+        });
+        await alert.present();
+      },
+      error: (error) => {
+        console.error('Error al agregar al carrito:', error);
+        if (error.status === 404) {
+          console.error('El endpoint no se encontró. Verifica la URL o el backend.');
+        }
+      },
+    });
   }
 
   changePage(direction: string) {
